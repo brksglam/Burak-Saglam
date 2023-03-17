@@ -1,25 +1,48 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alisveris", "Python_Deneme\Alisveris.csproj", "{A8FB27CB-9D29-4B7D-8DD2-D32791F52280}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A8FB27CB-9D29-4B7D-8DD2-D32791F52280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8FB27CB-9D29-4B7D-8DD2-D32791F52280}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8FB27CB-9D29-4B7D-8DD2-D32791F52280}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8FB27CB-9D29-4B7D-8DD2-D32791F52280}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7C63BF7A-7CDB-460C-BA70-ADAAB731D396}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+
+namespace AlisverisProgrami
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] urunler = { "Çamaşır Suyu", "Mandalina (1kg)", "Muz", "Çay (1000gr)", "Su (5 Lt.)", "Kitap", "Defter", "Kalem", "Çanta", "Su Bardağı" };
+            double[] fiyatlar = { 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0 };
+            List<string> sepet = new List<string>();
+            double toplamTutar = 0;
+
+            Console.WriteLine("Ürünler:");
+            for (int i = 0; i < urunler.Length; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + urunler[i] + " - " + fiyatlar[i] + " TL");
+            }
+
+            while (true)
+            {
+                Console.Write("Lütfen bir ürün seçin: ");
+                int secim = Convert.ToInt32(Console.ReadLine());
+                string urun = urunler[secim - 1];
+                sepet.Add(urun);
+                toplamTutar += fiyatlar[secim - 1];
+                Console.WriteLine(urun + " sepete eklendi.");
+                Console.WriteLine("Sepetteki Ürünler:");
+                foreach (string u in sepet)
+                {
+                    Console.WriteLine("- " + u);
+                }
+
+                Console.Write("Başka bir ürün almak istiyor musunuz? (E/H): ");
+                string cevap = Console.ReadLine();
+                if (cevap.ToLower() != "e")
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine("Toplam Tutar: " + toplamTutar + " TL");
+            Console.WriteLine("Alışveriş tamamlandı. Teşekkür ederiz!");
+            Console.ReadLine();
+        }
+    }
+}
