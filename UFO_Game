@@ -1,0 +1,66 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Uzay İstilası Oyununa Hoş Geldiniz!");
+        Console.WriteLine("Dünya'yı uzaylı istilasından kurtarmak için savaşın!");
+
+        int can = 3;
+        int puan = 0;
+
+        while (can > 0)
+        {
+            Console.WriteLine("\nBir uzaylı filosu Dünya'ya doğru ilerliyor! Saldırmak için bir tuşa basın.");
+            Console.ReadKey();
+
+            Console.Clear();
+            Console.WriteLine("Dünya");
+            Console.WriteLine("_________");
+            Console.WriteLine("|       |");
+            Console.WriteLine("|       |");
+            Console.WriteLine("|       |");
+            Console.WriteLine("|_______|");
+
+            Random rastgele = new Random();
+            int saldiri = rastgele.Next(1, 4);
+
+            Console.WriteLine("\nUFO");
+            Console.WriteLine("  / \\");
+            Console.WriteLine(" |   |");
+            Console.WriteLine(" |___|");
+
+            Console.WriteLine("\nAteş etmek için 'a' tuşuna basın.");
+
+            bool atesEdildiMi = false;
+            while (!atesEdildiMi)
+            {
+                ConsoleKeyInfo tus = Console.ReadKey(true);
+                if (tus.Key == ConsoleKey.A)
+                {
+                    Console.WriteLine("\nSilah ateşlendi!");
+                    atesEdildiMi = true;
+                }
+            }
+
+            if (saldiri == 1)
+            {
+                Console.WriteLine("\nUzaylı saldırısını başarıyla savuşturdunuz! +10 puan kazandınız.");
+                puan += 10;
+            }
+            else
+            {
+                Console.WriteLine("\nDünya savunma güçleri yetersiz kaldı. -1 can kaybettiniz.");
+                can--;
+            }
+
+            Console.WriteLine("\nPuanınız: " + puan);
+            Console.WriteLine("Kalan canınız: " + can);
+        }
+
+        Console.WriteLine("\nMaalesef, Dünya'nın savunması çöktü. Oyun bitti!");
+        Console.WriteLine("Toplam Puanınız: " + puan);
+        Console.ReadLine();
+    }
+}
