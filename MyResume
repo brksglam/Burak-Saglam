@@ -1,0 +1,119 @@
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import './App.css';
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/skills">Skills</Link>
+            </li>
+            <li>
+              <Link to="/education">Education</Link>
+            </li>
+            <li>
+              <Link to="/projects">Projects</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/skills">
+            <Skills />
+          </Route>
+          <Route path="/education">
+            <Education />
+          </Route>
+          <Route path="/projects">
+            <Projects />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Home() {
+  return (
+    <div>
+      <h2>Burak Saglam</h2>
+      <h4>Junior Developer</h4>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <h2>About Me</h2>
+      <p>I am a junior developer with a passion for creating user-friendly web applications.</p>
+    </div>
+  );
+}
+
+function Skills() {
+  return (
+    <div>
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML/CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+      </ul>
+    </div>
+  );
+}
+
+function Education() {
+  return (
+    <div>
+      <h2>Education</h2>
+      <h4>Bachelor of Computer Science</h4>
+      <p>XYZ University</p>
+    </div>
+  );
+}
+
+function Projects() {
+  return (
+    <div>
+      <h2>Projects</h2>
+      <ul>
+        <li>UfoGame</li>
+        <li>WhoAmI</li>
+        <li>ShoppingApp</li>
+        <li>RandomApp</li>
+      </ul>
+    </div>
+  );
+}
+
+function Contact() {
+  return (
+    <div>
+      <h2>Contact Me</h2>
+      <ul>
+        <li>Email: buraksaglam415@gmail.com</li>
+        <li>LinkedIn: <a href="
