@@ -1,0 +1,49 @@
+using System;
+
+namespace PersonalWebsite
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue; // yazı rengini mavi yapar
+            Console.WriteLine("Hi there! Welcome to my personal website!");
+            Console.WriteLine("--------------------------------------------------");
+            Console.ResetColor(); // yazı rengini varsayılana çevirir
+
+            Console.WriteLine("Name: Burak Sağlam");
+            Console.WriteLine("Age: 23");
+            Console.WriteLine("Occupation: Junior Developer");
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.ForegroundColor = ConsoleColor.Green; // yazı rengini yeşil yapar
+            Console.WriteLine("Skills:");
+            Console.ResetColor();
+
+            Console.WriteLine("* C# programming");
+            Console.WriteLine("* ASP.NET Core");
+            Console.WriteLine("* HTML/CSS/JavaScript");
+            Console.WriteLine("* SQL Server");
+            Console.WriteLine("* Git");
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.ForegroundColor = ConsoleColor.Yellow; // yazı rengini sarı yapar
+            Console.WriteLine("Projects:");
+            Console.ResetColor();
+
+            Console.WriteLine("1. Personal blog - A blog where I share my thoughts and experiences as a developer.");
+            Console.WriteLine("2. Weather app - A web application that shows the current weather conditions for a given location.");
+            Console.WriteLine("3. E-commerce website - A website where users can browse and purchase products online.");
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.ForegroundColor = ConsoleColor.Red; // yazı rengini kırmızı yapar
+            Console.WriteLine("Contact:");
+            Console.ResetColor();
+
+            Console.WriteLine("* Email: buraksaglam415@gmail.com");
+            Console.WriteLine("* Linkedin: linkedin.com/in/burak-sağlam/");
+            Console.WriteLine("* GitHub: github.com/brksglam");
+            Console.WriteLine("--------------------------------------------------");
+        }
+    }
+}
