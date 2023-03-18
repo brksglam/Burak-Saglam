@@ -1,49 +1,52 @@
 using System;
 
-namespace PersonalWebsite
+namespace BurakSaglamResume
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Blue; // yazı rengini mavi yapar
-            Console.WriteLine("Hi there! Welcome to my personal website!");
-            Console.WriteLine("--------------------------------------------------");
-            Console.ResetColor(); // yazı rengini varsayılana çevirir
-
+   
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Name: Burak Sağlam");
             Console.WriteLine("Age: 23");
-            Console.WriteLine("Occupation: Junior Developer");
-            Console.WriteLine("--------------------------------------------------");
-
-            Console.ForegroundColor = ConsoleColor.Green; // yazı rengini yeşil yapar
-            Console.WriteLine("Skills:");
+            Console.WriteLine("Position: Senior C# Developer\n");
             Console.ResetColor();
 
-            Console.WriteLine("* C# programming");
-            Console.WriteLine("* ASP.NET Core");
-            Console.WriteLine("* HTML/CSS/JavaScript");
-            Console.WriteLine("* SQL Server");
-            Console.WriteLine("* Git");
-            Console.WriteLine("--------------------------------------------------");
-
-            Console.ForegroundColor = ConsoleColor.Yellow; // yazı rengini sarı yapar
-            Console.WriteLine("Projects:");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("=== Contact Information ===\n");
+            Console.WriteLine("📧 Email: buraksaglam415@gmail.com");
+            Console.WriteLine("👔 LinkedIn: linkedin.com/in/burak-sağlam");
+            Console.WriteLine("💻 GitHub: github.com/brksglam\n");
             Console.ResetColor();
 
-            Console.WriteLine("1. Personal blog - A blog where I share my thoughts and experiences as a developer.");
-            Console.WriteLine("2. Weather app - A web application that shows the current weather conditions for a given location.");
-            Console.WriteLine("3. E-commerce website - A website where users can browse and purchase products online.");
-            Console.WriteLine("--------------------------------------------------");
-
-            Console.ForegroundColor = ConsoleColor.Red; // yazı rengini kırmızı yapar
-            Console.WriteLine("Contact:");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("=== Projects ===\n");
+            Console.WriteLine("👽 UfoGame - A simple game where you control a spaceship and shoot down alien ships.");
+            Console.WriteLine("🕵️ WhoAmI - A web app that displays your IP address and other network information.");
+            Console.WriteLine("🛍️ ShoppingApp - An e-commerce app where users can browse and purchase products.");
+            Console.WriteLine("🔮 RandomApp - A simple app that generates random numbers, letters, and other data types.\n");
             Console.ResetColor();
 
-            Console.WriteLine("* Email: buraksaglam415@gmail.com");
-            Console.WriteLine("* Linkedin: linkedin.com/in/burak-sağlam/");
-            Console.WriteLine("* GitHub: github.com/brksglam");
-            Console.WriteLine("--------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("=== Additional Skills ===\n");
+            Console.WriteLine("🔨 Proficient in C# programming language.");
+            Console.WriteLine("🔧 Familiar with ASP.NET MVC, Entity Framework, and SQL Server.");
+            Console.WriteLine("🎨 Experience with front-end development using HTML, CSS, and JavaScript.");
+            Console.WriteLine("🚀 Passionate about learning new technologies and solving complex problems.\n");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("=== Education ===\n");
+            Console.WriteLine("🎓 Bachelor's Degree in Computer Science from İstanbul Üniversitesi Yönetim Bilişim Sistemleri, 2021.");
+            Console.WriteLine("🎓 İnfotech Academy Yazılım Uzmanlığı, 2022-2023 (expected).\n");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("=== Thank you for visiting my resume! ===");
+            Console.ResetColor();
+
+            Console.ReadLine(); // Bu satır eklenerek programın otomatik olarak kapanması engellenebilir.
         }
     }
 }
