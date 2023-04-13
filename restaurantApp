@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+
+namespace RestaurantReservation
+{
+    class Program
+    {
+        static List<string> reservations = new List<string>();
+
+        static void Main(string[] args)
+        {
+            bool running = true;
+            while (running)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Restoran Rezervasyon Sistemi");
+                Console.ResetColor();
+                Console.WriteLine("1. Rezervasyon Yap");
+                Console.WriteLine("2. Rezervasyonları Görüntüle");
+                Console.WriteLine("3. Çıkış");
+                Console.Write("Seçiminizi yapın: ");
+
+                int choice;
+                int.TryParse(Console.ReadLine(), out choice);
+
+                switch (choice)
+                {
+                    case 1:
+                        MakeReservation();
+                        break;
+                    case 2:
+                        ShowReservations();
+                        break;
+                    case 3:
+                        running = false;
+                        break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Hatalı seçim! Lütfen geçerli bir seçenek girin.");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        break;
+                }
+            }
+        }
+
+        static void MakeReservation()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Rezervasyon Yap");
+            Console.ResetColor();
+            Console.Write("İsim: ");
+            string name = Console.ReadLine();
+            Console.Write("Telefon Numarası: ");
+            string phoneNumber = Console.ReadLine();
+            Console.Write("Kişi Sayısı: ");
+            int numberOfPeople;
+            int.TryParse(Console.ReadLine(), out numberOfPeople);
+
+            string reservation = $"{name} - {phoneNumber} - {numberOfPeople} kişi";
+            reservations.Add(reservation);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\nRezervasyon başarıyla yapıldı!");
+            Console.ResetColor();
+            Console.WriteLine("Devam etmek için bir tuşa basın...");
+            Console.ReadKey();
+        }
+
+        static void ShowReservations()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Rezervasyon Listesi");
+            Console.ResetColor();
+            foreach (string reservation in reservations)
+            {
+                Console.WriteLine(reservation);
+            }
+            Console.WriteLine("\nDevam etmek için bir tuşa basın...");
+            Console.ReadKey();
+        }
+    }
+}
