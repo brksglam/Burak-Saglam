@@ -1,0 +1,123 @@
+pip install web3
+pip install requests
+
+----------------------------------------
+
+import requests
+from web3 import Web3
+
+# Kripto para madenciliği bileşeni
+def crypto_mining():
+    # Madencilik işlemleri için kodları burada yazın
+    pass
+
+# Metaverse arsa alım satım bileşeni
+def metaverse_land_trading():
+    # Metaverse arsalarını işlemek için kodları burada yazın
+    pass
+
+# NFT alım satım bileşeni
+def nft_trading():
+    # NFT işlemleri için kodları burada yazın
+    pass
+
+# Ana işlemleri gerçekleştiren ana fonksiyon
+def main():
+    # Kripto para madenciliği işlemini başlatın
+    crypto_mining()
+
+    # Metaverse arsa alım satım işlemini başlatın
+    metaverse_land_trading()
+
+    # NFT alım satım işlemini başlatın
+    nft_trading()
+
+if __name__ == "__main__":
+    main()
+
+
+------------DATABASE CREATE ---------
+
+
+pip install sqlite3
+
+---------------------------------------
+
+import sqlite3
+
+# Veritabanı bağlantısını oluşturma ve tabloları başlatma
+def create_database():
+    connection = sqlite3.connect("project_database.db")
+
+    cursor = connection.cursor()
+
+    # Metaverse arsaları için tablo oluşturma
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS metaverse_lands (
+        id INTEGER PRIMARY KEY,
+        name TEXT NOT NULL,
+        location TEXT NOT NULL,
+        size REAL NOT NULL,
+        price REAL NOT NULL,
+        description TEXT
+    )
+    """)
+
+    # NFT'ler için tablo oluşturma
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS nfts (
+        id INTEGER PRIMARY KEY,
+        name TEXT NOT NULL,
+        image_url TEXT NOT NULL,
+        price REAL NOT NULL,
+        description TEXT
+    )
+    """)
+
+    connection.commit()
+    connection.close()
+
+# Metaverse arsalarına örnek veri ekleme
+def add_sample_metaverse_lands():
+    connection = sqlite3.connect("project_database.db")
+    cursor = connection.cursor()
+
+    sample_lands = [
+        (1, "Sample Land 1", "Mars", 100.0, 5000.0, "A beautiful piece of land on Mars."),
+        (2, "Sample Land 2", "Venus", 150.0, 8000.0, "A scenic land parcel on Venus.")
+    ]
+
+    cursor.executemany("""
+    INSERT OR IGNORE INTO metaverse_lands (id, name, location, size, price, description)
+    VALUES (?, ?, ?, ?, ?, ?)
+    """, sample_lands)
+
+    connection.commit()
+    connection.close()
+
+# NFT'lere örnek veri ekleme
+def add_sample_nfts():
+    connection = sqlite3.connect("project_database.db")
+    cursor = connection.cursor()
+
+    sample_nfts = [
+        (1, "Sample NFT 1", "https://example.com/sample_nft_1.png", 1.0, "A cool NFT artwork."),
+        (2, "Sample NFT 2", "https://example.com/sample_nft_2.png", 2.0, "An amazing NFT artwork.")
+    ]
+
+    cursor.executemany("""
+    INSERT OR IGNORE INTO nfts (id, name, image_url, price, description)
+    VALUES (?, ?, ?, ?, ?)
+    """, sample_nfts)
+
+    connection.commit()
+    connection.close()
+
+# Ana işlemleri gerçekleştiren ana fonksiyon
+def main():
+    create_database()
+    add_sample_metaverse_lands()
+    add_sample_nfts()
+
+if __name__ == "__main__":
+    main()
