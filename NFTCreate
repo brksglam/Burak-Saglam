@@ -1,0 +1,58 @@
+import json
+import requests
+from web3 import Web3
+
+# Enter your OpenSea API key and Ethereum wallet address here
+OPENSEA_API_KEY = "YOUR_OPENSEA_API_KEY"
+YOUR_ETHEREUM_ADDRESS = "YOUR_ETHEREUM_ADDRESS"
+
+# Set up the required HTTP headers for interacting with the OpenSea API
+headers = {
+    "Content-Type": "application/json",
+    "X-API-KEY": OPENSEA_API_KEY
+}
+
+# Functions to perform API requests for creating and listing NFTs
+def create_nft():
+    url = "https://api.opensea.io/api/v1/asset"
+    
+    data = {
+        "token_address": "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d",  # CryptoKitties contract address (example)
+        "token_id": "1"  # Unique identifier of the NFT you want to create
+    }
+    
+    response = requests.post(url, data=json.dumps(data), headers=headers)
+    
+    if response.status_code == 200:
+        print("NFT successfully created!")
+    else:
+        print(f"Error: {response.status_code} - {response.text}")
+
+def list_nft():
+    url = "https://api.opensea.io/api/v1/orders"
+    
+    data = {
+        "asset_contract_address": "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d",  # CryptoKitties contract address (example)
+        "token_id": "1",  # Unique identifier of the NFT you want to list
+        "account_address": YOUR_ETHEREUM_ADDRESS,
+        "price": Web3.toWei(1, "ether"),  # Specify the price in Ether
+        "expiration_time": 0  # Specify the expiration time in seconds (0 = unlimited)
+    }
+    
+    response = requests.post(url, data=json.dumps(data), headers=headers)
+    
+    if response.status_code == 200:
+        print("NFT successfully listed!")
+    else:
+        print(f"Error: {response.status_code} - {response.text}")
+
+# Main function to execute the operations
+def main():
+    # First, create the NFT
+    create_nft()
+
+    # Then, perform the NFT listing operation
+    list_nft()
+
+if __name__ == "__main__":
+    main()
